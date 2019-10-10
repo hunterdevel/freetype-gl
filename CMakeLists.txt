@@ -9,6 +9,7 @@ set( freetype-gl_VERSION_MAJOR 0) # Breaking change
 set( freetype-gl_VERSION_MINOR 1) # Incremental change && not breaking && possibly new features && possibly not backwards compatible
 set( freetype-gl_VERSION_PATCH 0) # Bugfix && not breaking && backwards compatible (if not revise minor).
 set( freetype-gl_VERSION_STRING ${freetype-glVERSION_MAJOR}.${freetype-gl_VERSION_MINOR}.${freetype-gl_VERSION_PATCH} )
+cmake_policy( SET CMP0048 NEW )
 
 project(freetype-gl VERSION ${freetype-gl_VERSION_STRING} LANGUAGES C CXX)
 
