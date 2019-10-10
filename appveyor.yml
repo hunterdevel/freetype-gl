@@ -3,6 +3,10 @@
 # Distributed under the OSI-approved BSD 2-Clause License.  See accompanying
 # file `LICENSE` for more details.
 version: ci-{build}
+environment:
+  matrix:
+  - SHARED: NO
+  - SHARED: YES
 init:
   - git config --global core.eol native
   - git config --global core.autocrlf true
@@ -21,5 +25,5 @@ before_build:
   - if not exist build\NUL mkdir build
   - cd build
 build_script:
-  - cmake -G "Visual Studio 12" -Dfreetype-gl_BUILD_APIDOC=OFF -Dfreetype-gl_BUILD_TESTS=OFF "-Dglfw3_DIR=C:/Program Files (x86)/GLFW/lib/cmake/glfw3" ..
+  - cmake -G "Visual Studio 12" -DBUILD_SHARED_LIBS=%SHARED% -Dfreetype-gl_BUILD_APIDOC=OFF -Dfreetype-gl_BUILD_TESTS=OFF "-Dglfw3_DIR=C:/Program Files (x86)/GLFW/lib/cmake/glfw3" ..
   - cmake --build . --config RelWithDebInfo -- /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll" /verbosity:minimal
