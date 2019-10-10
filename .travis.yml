@@ -4,8 +4,13 @@
 # file `LICENSE` for more details.
 language: c
 dist: trusty
-compiler:
-  - gcc
+compiler: gcc
+matrix:
+  include :
+    - os: linux
+      env: SHARED=NO
+    - os: linux
+      env: SHARED=YES
 before_install:
 # GLFW requires a working X11 display and makefont uses GLFW.
   - "export DISPLAY=:99.0"
@@ -42,6 +47,6 @@ install:
 #
   - cd ..
 before_script:
-  - cmake -Dfreetype-gl_BUILD_HARFBUZZ=ON . && make
+  - cmake -Dfreetype-gl_BUILD_HARFBUZZ=ON -DBUILD_SHARED_LIBS=$SHARED . && make
 script:
   - ctest --output-on-failure
