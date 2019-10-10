@@ -17,6 +17,7 @@ IF (WIN32)
         NAMES glew GLEW glew32 glew32s
         PATHS
         $ENV{PROGRAMFILES}/GLEW/lib
+        ${GLEW_ROOT_DIR}/bin
         ${GLEW_ROOT_DIR}/lib
         ${PROJECT_SOURCE_DIR}/src/nvgl/glew/bin
         ${PROJECT_SOURCE_DIR}/src/nvgl/glew/lib
