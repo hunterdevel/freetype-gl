@@ -5,20 +5,20 @@
 
 cmake_minimum_required(VERSION 2.8.12)
 
-set( freetype-gl_VERSION_MAJOR 0) # Breaking change
-set( freetype-gl_VERSION_MINOR 1) # Incremental change && not breaking && possibly new features && possibly not backwards compatible
-set( freetype-gl_VERSION_PATCH 0) # Bugfix && not breaking && backwards compatible (if not revise minor).
-set( freetype-gl_VERSION_STRING ${freetype-gl_VERSION_MAJOR}.${freetype-gl_VERSION_MINOR}.${freetype-gl_VERSION_PATCH} )
+set( freetype_gl_VERSION_MAJOR 0) # Breaking change
+set( freetype_gl_VERSION_MINOR 1) # Incremental change && not breaking && possibly new features && possibly not backwards compatible
+set( freetype_gl_VERSION_PATCH 0) # Bugfix && not breaking && backwards compatible (if not revise minor).
+set( freetype_gl_VERSION_STRING ${freetype_gl_VERSION_MAJOR}.${freetype_gl_VERSION_MINOR}.${freetype_gl_VERSION_PATCH} )
 cmake_policy( SET CMP0048 NEW )
 
-project(freetype-gl VERSION ${freetype-gl_VERSION_STRING} LANGUAGES C CXX)
+project(freetype-gl VERSION ${freetype_gl_VERSION_STRING} LANGUAGES C CXX)
 
 set(CMAKE_MODULE_PATH
     "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules"
     "${CMAKE_MODULE_PATH}"
 )
 
-message(STATUS "Building freetype-gl v" ${freetype-gl_VERSION_STRING})
+message(STATUS "Building freetype-gl v" ${freetype_gl_VERSION_STRING})
 message(STATUS "Building for ${CMAKE_SYSTEM_NAME} target system")
 message(STATUS "Building with ${CMAKE_C_COMPILER_ID} compiler")
 
@@ -151,9 +151,9 @@ add_library(freetype-gl
 set_target_properties( freetype-gl 
     PROPERTIES 
         VERSION 
-            ${freetype-gl_VERSION_STRING} 
+            ${freetype_gl_VERSION_STRING} 
         SOVERSION 
-            ${freetype-gl_VERSION_MAJOR}
+            ${freetype_gl_VERSION_MAJOR}
 )                                
 
 if(freetype-gl_BUILD_MAKEFONT)
