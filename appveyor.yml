@@ -6,7 +6,7 @@ version: ci-{build}
 environment:
   matrix:
   - SHARED: NO
-  - SHARED: YES
+  #- SHARED: YES # SHARED FREETYPE-GL testing in windows is not possible. It can be built though with modifications on CMakeLists.txt
 init:
   - git config --global core.eol native
   - git config --global core.autocrlf true
