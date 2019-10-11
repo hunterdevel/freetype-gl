@@ -13,8 +13,13 @@ IF (WIN32)
         ${GLEW_ROOT_DIR}/include
         DOC "The directory where GL/glew.h resides")
 
+    if (BUILD_SHARED_LIBS)
+        set ( GLEW_SEARCH_NAMES glew32s glews GLEWs  glew GLEW glew32 )
+    else()
+        set ( GLEW_SEARCH_NAMES glew GLEW glew32 glew32s glews GLEWs )
+    endif()
     FIND_LIBRARY( GLEW_LIBRARY
-        NAMES glew GLEW glew32 glew32s
+        NAMES ${GLEW_SEARCH_NAMES}
         PATHS
         $ENV{PROGRAMFILES}/GLEW/lib
         ${GLEW_ROOT_DIR}/bin
